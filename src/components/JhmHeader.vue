@@ -1,6 +1,6 @@
 <template>
   <header class="jhm-header">
-    <Skiplink />
+    <JhmSkiplink />
     <div class="jhm-container">
       <nav class="jhm-header__nav" aria-label="Hoofdmenu" role="navigation">
         <ul class="jhm-nav__menu">
@@ -109,11 +109,11 @@
 </style>
 
 <script>
-import Skiplink from "~/components/Skiplink.vue";
+import JhmSkiplink from "~/components/JhmSkiplink.vue";
 export default {
   name: "Header",
   components: {
-    Skiplink
+    JhmSkiplink
   },
   data() {
     return {

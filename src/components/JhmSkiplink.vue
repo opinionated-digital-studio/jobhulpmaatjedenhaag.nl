@@ -23,6 +23,6 @@
 </style>
 <script>
 export default {
-  name: "Skiplink"
+  name: "JhmSkiplink"
 };
 </script>

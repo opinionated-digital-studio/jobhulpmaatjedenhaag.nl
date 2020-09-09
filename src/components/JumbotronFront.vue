@@ -6,9 +6,11 @@
         nieuwe baan of opleiding. Vrijwillig en voor iedereen die het nodig
         heeft.
       </p>
-      <Button to="/ik-wil-hulp/" type="link" size="large">Ik wil hulp</Button>
-      <Button to="/ik-word-maatje/" type="link" size="large" styling="white"
-        >Ik word maatje</Button
+      <JhmButton to="/ik-wil-hulp/" type="link" size="large"
+        >Ik wil hulp</JhmButton
+      >
+      <JhmButton to="/ik-word-maatje/" type="link" size="large" styling="white"
+        >Ik word maatje</JhmButton
       >
     </div>
     <div class="jhm-jumbotron__panorama">
@@ -77,15 +79,14 @@
   background-color: white;
   padding: emRhythm(1) emRhythm(2);
 }
-
 </style>
 
 <script>
-import Button from "@/components/Button.vue";
+import JhmButton from "@/components/JhmButton.vue";
 export default {
   name: "JumbotronFront",
   components: {
-    Button
+    JhmButton
   }
 };
 </script>

@@ -90,9 +90,9 @@
         :v="$v.form.situatie"
       />
 
-      <Button type="submit" to="sendButton" class="jhm-button" size="large">{{
+      <JhmButton type="submit" to="sendButton" class="jhm-button" size="large">{{
         submitButtonText
-      }}</Button>
+      }}</JhmButton>
     </form>
   </Layout>
 </template>
@@ -106,7 +106,7 @@
 <script>
 import axios from "axios";
 import { required, email, minLength } from "vuelidate/lib/validators";
-import Button from "~/components/Button.vue";
+import JhmButton from "~/components/JhmButton.vue";
 import InputBase from "~/components/forms/InputBase.vue";
 import InputTextArea from "~/components/forms/InputTextArea";
 import InputAddress from "~/components/forms/InputAddress";
@@ -118,7 +118,7 @@ export default {
     title: "Ik word maatje"
   },
   components: {
-    Button,
+    JhmButton,
     InputBase,
     InputAddress,
     InputDateOfBirth,

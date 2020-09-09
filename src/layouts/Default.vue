@@ -1,10 +1,10 @@
 <template>
   <div class="layout">
-    <Header />
+    <JhmHeader />
     <div class="jhm-container" id="main">
       <slot />
     </div>
-    <Footer />
+    <JhmFooter />
   </div>
 </template>
 
@@ -18,13 +18,13 @@ button:focus {
 </style>
 
 <script>
-import Header from "~/components/Header.vue";
-import Footer from "~/components/Footer.vue";
+import JhmHeader from "~/components/JhmHeader.vue";
+import JhmFooter from "~/components/JhmFooter.vue";
 
 export default {
   components: {
-    Header,
-    Footer
+    JhmHeader,
+    JhmFooter
   }
 };
 </script>

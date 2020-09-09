@@ -64,7 +64,7 @@
 
 <script>
 export default {
-  name: "Button",
+  name: "JhmButton",
   props: {
     styling: String,
     to: String,
