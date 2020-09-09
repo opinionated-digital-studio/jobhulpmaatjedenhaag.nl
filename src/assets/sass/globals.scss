@@ -1,0 +1,125 @@
+@import '~reset-css';
+
+// Your settings for Typesettings :)
+$font-sans: 'Exo', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-serif: Georgia, 'Times New Roman', serif;
+$font-mono: 'Lucida Console', Monaco, monospace;
+$text-color: #000;
+$base-vertical-unit: 6px;
+$base-line-multi: 4;
+$base-font-size: 16px;
+$ms-ratio: 1.414;
+$paragraph-indent: false;
+$paragraph-justify: false;
+$load-typesetted: true;
+
+@import "~typesettings";
+
+$primary-color: #212b5e;
+$secondary-color: #4ebab1;
+$gray: #bfbfbf;
+$dark-gray: #595959;
+
+.secondary {
+  color: $secondary-color;
+}
+
+body {
+  font-family: $font-sans;
+}
+
+h1,
+h2,
+h3 {
+  color: $primary-color;
+  margin-bottom: emRhythm(1);
+}
+
+p {
+  hyphens: auto;
+}
+
+a:focus,
+button:focus {
+  background-color: yellow;
+  color: black;
+  outline: 3px solid yellow;
+}
+
+input,
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 0;
+  border: 1px solid rgba(black, 0.5);
+  padding: emRhythm(2);
+  margin-top: emRhythm(1);
+  font-family: $font-sans;
+}
+
+input:focus,
+textarea:focus {
+  outline: 3px solid yellow;
+}
+
+.jhm-legend {
+  font-weight: bold;
+  margin-bottom: emRhythm(2, $ms-up1);
+  @include setType(5, $ms-up1);
+}
+
+fieldset {
+  margin-bottom: emRhythm(2);
+}
+
+form {
+  margin-bottom: emRhythm(2);
+}
+
+.jhm-label--error,
+.jhm-label__message--error,
+.jhm-label__asterisk {
+  color: red;
+}
+
+.jhm-label__message--error {
+  display: block;
+  font-weight: bold;
+}
+
+.jhm-label__helptext {
+  display: block;
+  margin-bottom: 0;
+  font-style: italic;
+}
+
+.jhm-input--error {
+  border: 1px solid red;
+}
+
+.jhm-input--success {
+  border: 1px solid $secondary-color;
+}
+
+.jhm-lead {
+  @include setType(5, $ms-up1);
+}
+
+.jhm-container {
+  width: 92%;
+  margin: 0 auto;
+  max-width: 1600px;
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+}
