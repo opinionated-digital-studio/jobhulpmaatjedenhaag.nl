@@ -2,26 +2,28 @@
   <Layout>
     <h1>Contact</h1>
     <h2 class="h3">Stichting JobHulpMaatje Den Haag</h2>
-    <address>
-      <span>Burgemeester van Karnebeeklaan 10</span><br />
-      <span>2585 BB Den Haag</span><br />
-      <a href="mailto:info@jobhulpmaatjedenhaag.nl"
+    <address class="jhm-address">
+      <span class="jhm-address__item">Burgemeester van Karnebeeklaan 10</span><br />
+      <span class="jhm-address__item">2585 BB Den Haag</span><br />
+      <a class="jhm-address__item" href="mailto:info@jobhulpmaatjedenhaag.nl"
         >info@jobhulpmaatjedenhaag.nl</a
       >
     </address>
-
   </Layout>
 </template>
 
 <style lang="scss">
-address {
-  margin-bottom: emRhythm(1, $ms-up1);
+.jhm-address {
+  margin-bottom: emRhythm(3);
+}
+
+.jhm-address__item {
   @include setType(5, $ms-up1);
 
   @media (min-width: 56.25em) {
-    margin-bottom: emRhythm(1, $ms-up2);
-    @include setType(6, $ms-up2);
+    @include setType(7, $ms-up2);
   }
+
 }
 </style>
 
