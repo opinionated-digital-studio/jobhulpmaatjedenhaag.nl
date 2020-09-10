@@ -1,9 +1,9 @@
 <template>
-  <div class="jhm-footer">
+  <footer class="jhm-footer">
     <div class="jhm-container">
       &#169; {{$static.metadata.siteName}}
     </div>
-  </div>
+  </footer>
 </template>
 
 <style lang="scss">

@@ -15,6 +15,18 @@ $load-typesetted: true;
 
 @import "~typesettings";
 
+$breakpoints: (
+  sm: 576px,
+  md: 640px,
+  lg: 1024px,
+  xl: 1200px
+);
+
+@import '~@sfem/breakpoint/lib/breakpoint';
+
+
+@import '~basicgrid';
+
 $primary-color: #212b5e;
 $secondary-color: #4ebab1;
 $gray: #bfbfbf;
@@ -28,6 +40,16 @@ body {
   font-family: $font-sans;
 }
 
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 99vh;
+}
+
+footer {
+  flex: 1;
+}
+
 h1,
 h2,
 h3 {
@@ -37,6 +59,7 @@ h3 {
 
 p {
   hyphens: auto;
+  max-width: 100%;
 }
 
 a:focus,
@@ -109,6 +132,10 @@ form {
   width: 92%;
   margin: 0 auto;
   max-width: 1600px;
+
+  @include bp(lg) {
+    width: 80%;
+  }
 }
 
 .sr-only {

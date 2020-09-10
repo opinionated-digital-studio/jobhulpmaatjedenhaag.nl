@@ -12,91 +12,96 @@
         </label>
       </div>
     </div>
-    <div class="jhm-form__group">
+    <div class="row">
       <InputBase
         id="postcode-form-item"
         name="postcode"
         type="text"
+        class="column medium-5"
         label="Postcode"
         v-model.trim="addressItems.postcode"
         :v="$v.addressItems.postcode"
         @input="emitAddressDetails"
-        :showErrors=false
+        :showErrors="false"
         :required="required ? true : false"
       />
 
       <InputBase
         name="housenumber"
         type="text"
+        class="column medium-3"
         label="Huisnummer"
         v-model="addressItems.housenumber"
         :v="$v.addressItems.housenumber"
         @input="emitAddressDetails"
-        :showErrors=false
+        :showErrors="false"
+        :required="required ? true : false"
+      />
+
+      <div class="column medium-4">
+        <JhmButton
+          id="address-lookup-button"
+          type="button"
+          styling="gray"
+          @buttonClicked="addressLookup"
+          >Huisadres opvragen</JhmButton>
+      </div>
+    </div>
+
+    <div class="row">
+      <label
+        id="looking-for-address-text"
+        v-if="lookingForAddressText"
+        for="address-lookup-button"
+        class="column jhm-label jhm-label__address-lookup"
+        :class="{ 'jhm-label--error': addressNotFound }"
+        >{{ lookingForAddressText }}</label
+      >
+    </div>
+
+    <div class="row">
+      <InputBase
+        name="streetname"
+        type="text"
+        label="Straatnaam"
+        class="column medium-6"
+        @input="emitAddressDetails"
+        v-model="addressItems.streetname"
+        :v="$v.addressItems.streetname"
+        :required="required ? true : false"
+      />
+
+      <InputBase
+        name="area"
+        type="text"
+        label="Woonplaats"
+        class="column medium-6"
+        v-model="addressItems.area"
+        @input="emitAddressDetails"
+        :v="$v.addressItems.area"
         :required="required ? true : false"
       />
     </div>
-
-    <button
-      id="address-lookup-button"
-      type="button"
-      class="jhm-button jhm-button--gray"
-      v-on:click.prevent="addressLookup"
-    >
-      Huisadres opvragen
-    </button>
-
-    <label
-      v-if="lookingForAddressText"
-      for="address-lookup-button"
-      class="jhm-label jhm-label__address-lookup"
-      :class="{ 'jhm-label--error': addressNotFound }"
-      >{{ lookingForAddressText }}</label
-    >
-
-    <InputBase
-      name="streetname"
-      type="text"
-      label="Straatnaam"
-      @input="emitAddressDetails"
-      v-model="addressItems.streetname"
-      :v="$v.addressItems.streetname"
-      :required="required ? true : false"
-    />
-
-    <InputBase
-      name="area"
-      type="text"
-      label="Woonplaats"
-      v-model="addressItems.area"
-      @input="emitAddressDetails"
-      :v="$v.addressItems.area"
-      :required="required ? true : false"
-    />
   </div>
 </template>
 
 <style lang="scss">
-.jhm-form__group {
-  display: flex;
+#address-lookup-button {
+  @include bp(md) {
+    width: 100%;
+    margin-top: 1.8rem;
+  }
 }
 
-.jhm-form__group .jhm-form__item:first-child {
-  margin-right: emRhythm(2);
-}
-
-.jhm-label__address-lookup {
-  display: block;
-  margin-bottom: emRhythm(3);
-}
-
-#postcode-form-item {
-  flex-basis: 120%;
+#looking-for-address-text {
+  height: emRhythm(7);
+  margin-bottom: emRhythm(2);
 }
 </style>
 
 <script>
 import InputBase from "~/components/forms/InputBase.vue";
+import JhmButton from "~/components/JhmButton.vue";
 import { required, requiredIf, minLength } from "vuelidate/lib/validators";
 import { postcode } from "~/functions/customValidators";
 import axios from "axios";
@@ -104,7 +109,8 @@ import axios from "axios";
 export default {
   name: "InputAddress",
   components: {
-    InputBase
+    InputBase,
+    JhmButton
   },
   data() {
     return {
@@ -122,24 +128,24 @@ export default {
     return {
       addressItems: {
         postcode: {
-          required: requiredIf(function(){
-            return !! this.required
+          required: requiredIf(function() {
+            return !!this.required;
           }),
           postcode
         },
         housenumber: {
-          required: requiredIf(function(){
-            return !! this.required
+          required: requiredIf(function() {
+            return !!this.required;
           })
         },
         streetname: {
-          required: requiredIf(function(){
-            return !! this.required
+          required: requiredIf(function() {
+            return !!this.required;
           })
         },
         area: {
-          required: requiredIf(function(){
-            return !! this.required
+          required: requiredIf(function() {
+            return !!this.required;
           })
         }
       }
@@ -161,7 +167,7 @@ export default {
   watch: {
     v: {
       handler(val) {
-        if(val.$error) this.$v.addressItems.$touch()
+        if (val.$error) this.$v.addressItems.$touch();
       },
       deep: true
     }

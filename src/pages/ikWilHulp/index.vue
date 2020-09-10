@@ -21,25 +21,30 @@
       <fieldset>
         <legend class="jhm-legend">Persoonlijke gegevens</legend>
 
-        <InputBase
-          name="given-name"
-          type="text"
-          :required="true"
-          label="Voornaam"
-          autocomplete="given-name"
-          v-model="form.givenName"
-          :v="$v.form.givenName"
-        />
-
-        <InputBase
-          name="family-name"
-          type="text"
-          :required="true"
-          label="Achternaam"
-          autocomplete="family-name"
-          v-model="form.familyName"
-          :v="$v.form.familyName"
-        />
+        <div class="row">
+          <div class="column medium-6">
+            <InputBase
+              name="given-name"
+              type="text"
+              :required="true"
+              label="Voornaam"
+              autocomplete="given-name"
+              v-model="form.givenName"
+              :v="$v.form.givenName"
+            />
+          </div>
+          <div class="column medium-6">
+            <InputBase
+              name="family-name"
+              type="text"
+              :required="true"
+              label="Achternaam"
+              autocomplete="family-name"
+              v-model="form.familyName"
+              :v="$v.form.familyName"
+            />
+          </div>
+        </div>
       </fieldset>
 
       <fieldset class="jhm-fieldset" aria-describedby="date-of-birth-hint">
@@ -55,7 +60,7 @@
       <fieldset class="jhm-fieldset">
         <legend class="jhm-legend">Adresgegevens</legend>
 
-        <InputAddress @emitAddress="getAddress" @emitPostcode="getPostcode" />
+        <InputAddress @emitAddress="getAddress" @emitPostcode="getPostcode" :v="$v.form.address"/>
       </fieldset>
 
       <fieldset class="jhm-fieldset">
@@ -63,22 +68,27 @@
           Contactgegevens
         </legend>
 
-        <InputBase
-          name="email"
-          type="email"
-          label="E-mailadres"
-          v-model="form.email"
-          :v="$v.form.email"
-        />
-
-        <InputBase
-          name="tel"
-          type="tel"
-          :required="true"
-          label="Telefoonnummer"
-          v-model="form.tel"
-          :v="$v.form.tel"
-        />
+        <div class="row">
+          <div class="column medium-6">
+            <InputBase
+              name="email"
+              type="email"
+              label="E-mailadres"
+              v-model="form.email"
+              :v="$v.form.email"
+            />
+          </div>
+          <div class="column medium-6">
+            <InputBase
+              name="tel"
+              type="tel"
+              :required="true"
+              label="Telefoonnummer"
+              v-model="form.tel"
+              :v="$v.form.tel"
+            />
+          </div>
+        </div>
       </fieldset>
 
       <InputTextArea
@@ -90,9 +100,13 @@
         :v="$v.form.situatie"
       />
 
-      <JhmButton type="submit" to="sendButton" class="jhm-button" size="large">{{
-        submitButtonText
-      }}</JhmButton>
+      <JhmButton
+        type="submit"
+        to="sendButton"
+        class="jhm-button"
+        size="large"
+        >{{ submitButtonText }}</JhmButton
+      >
     </form>
   </Layout>
 </template>
@@ -100,11 +114,13 @@
 <style lang="scss">
 .jhm-form__hint {
   color: $dark-gray;
+  margin-bottom: emRhythm(2);
 }
 </style>
 
 <script>
 import axios from "axios";
+import Layout from "~/layouts/Forms.vue";
 import { required, email, minLength } from "vuelidate/lib/validators";
 import JhmButton from "~/components/JhmButton.vue";
 import InputBase from "~/components/forms/InputBase.vue";
@@ -118,6 +134,7 @@ export default {
     title: "Ik word maatje"
   },
   components: {
+    Layout,
     JhmButton,
     InputBase,
     InputAddress,
@@ -135,7 +152,7 @@ export default {
         tel: "",
         address: "",
         postcode: "",
-        situatie: "",
+        situatie: ""
       },
       showError: false,
       submitButtonText: "Aanmelden"
@@ -151,6 +168,9 @@ export default {
       },
       email: {
         email
+      },
+      address: {
+
       },
       tel: {
         required,

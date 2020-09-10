@@ -15,16 +15,12 @@
                   id="jhm-logo"
                   :alt="$static.metadata.siteName"
                   src="../assets/jhm_dh_logo.png"
-                  width="135"
                 />
               </g-link>
             </li>
           </div>
           <button
             class="jhm-menu__hamburger"
-            v-bind:class="{
-              'jhm-menu__hamburger--is-available': jsIsAvailable
-            }"
             aria-label="Hoofdmenu weergaven"
             @click="openMenu"
           >
@@ -34,9 +30,14 @@
             class="jhm-menu__collapsible"
             v-bind:class="{ 'jhm-menu__collapsible--is-closed': !isActive }"
           >
-            <li class="jhm-menu__item" v-for="edge in $static.main.edges" :key="edge.node.id">
-            <g-link class="jhm-menu__link" v-bind:to="edge.node.path"> {{ edge.node.title }}</g-link>
-              
+            <li
+              class="jhm-menu__item"
+              v-for="edge in $static.main.edges"
+              :key="edge.node.id"
+            >
+              <g-link class="jhm-menu__link" v-bind:to="edge.node.path">
+                {{ edge.node.title }}</g-link
+              >
             </li>
           </div>
         </ul>
@@ -52,7 +53,12 @@
 }
 
 #jhm-logo {
+  width: 135px;
   margin: auto 0;
+
+  @include bp(lg) {
+    width: 200px;
+  }
 }
 
 .jhm-menu__link {
@@ -81,17 +87,17 @@
 }
 
 .jhm-menu__hamburger {
-  display: none;
+  display: block;
   background: none;
   border: none;
+
+  @include bp(lg) {
+    display: none;
+  }
 }
 
 .fa-icon {
   color: $primary-color;
-}
-
-.jhm-menu__hamburger--is-available {
-  display: block;
 }
 
 .jhm-menu__collapsible {
@@ -101,6 +107,44 @@
 
 .jhm-menu__collapsible--is-closed {
   display: none;
+
+  @include bp(lg) {
+    display: block;
+    flex-basis: inherit;
+    flex-grow: 0;
+    display: flex;
+    margin: auto 0;
+  }
+}
+
+.jhm-menu__item {
+  @include bp(lg) {
+    padding: emRhythm(2) emRhythm(3);
+    position: relative;
+
+    &:last-child {
+      padding-right: 0;
+    }
+
+    &:not(:first-child) {
+      &::before {
+        content: "";
+        position: absolute;
+        left: -1px;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%);
+        height: 1rem;
+        width: 2px;
+        background-color: $secondary-color;
+      }
+    }
+  }
+}
+
+.jhm-menu__item--logo {
+  padding: 0;
 }
 
 .jhm-menu__hamburger {
@@ -117,7 +161,6 @@ export default {
   },
   data() {
     return {
-      jsIsAvailable: true,
       isActive: false
     };
   },

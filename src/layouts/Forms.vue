@@ -2,7 +2,7 @@
   <div class="layout">
     <JhmHeader />
     <div class="row jhm-container" id="main">
-      <div class="column large-8">
+      <div class="column large-6">
         <slot />
       </div>
     </div>
