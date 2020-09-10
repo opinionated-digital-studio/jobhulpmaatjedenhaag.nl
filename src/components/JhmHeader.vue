@@ -1,8 +1,8 @@
 <template>
   <header class="jhm-header">
     <JhmSkiplink />
-    <div class="jhm-container">
-      <nav class="jhm-header__nav" aria-label="Hoofdmenu" role="navigation">
+    <div class="jhm-container row">
+      <nav class="column jhm-header__nav" aria-label="Hoofdmenu" role="navigation">
         <ul class="jhm-nav__menu">
           <div class="jhm-menu__items jhm-menu__items--left">
             <li class="jhm-menu__item jhm-menu__item--logo">
@@ -61,6 +61,7 @@
 
   @include bp(lg) {
     width: 200px;
+    transform: translateX(-3rem);
   }
 }
 
