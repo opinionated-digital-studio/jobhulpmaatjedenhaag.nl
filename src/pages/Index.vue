@@ -10,7 +10,7 @@ import JumbotronFront from "~/components/JumbotronFront.vue";
 
 export default {
   metaInfo: {
-    title: "JobHulpMaatje Den Haag: Samen werkt 't"
+    title: "Stichting JobHulpMaatje Den Haag: Samen werkt 't"
   },
   components: {
     Layout,

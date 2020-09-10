@@ -20,26 +20,29 @@
     <form @submit.prevent="submitForm" novalidate>
       <fieldset>
         <legend class="jhm-legend">Persoonlijke gegevens</legend>
+        <div class="row">
+          <InputBase
+            name="given-name"
+            type="text"
+            :required="true"
+            label="Voornaam"
+            autocomplete="given-name"
+            v-model="form.givenName"
+            :v="$v.form.givenName"
+            class="column medium-6"
+          />
 
-        <InputBase
-          name="given-name"
-          type="text"
-          :required="true"
-          label="Voornaam"
-          autocomplete="given-name"
-          v-model="form.givenName"
-          :v="$v.form.givenName"
-        />
-
-        <InputBase
-          name="family-name"
-          type="text"
-          :required="true"
-          label="Achternaam"
-          autocomplete="family-name"
-          v-model="form.familyName"
-          :v="$v.form.familyName"
-        />
+          <InputBase
+            name="family-name"
+            type="text"
+            :required="true"
+            label="Achternaam"
+            autocomplete="family-name"
+            v-model="form.familyName"
+            :v="$v.form.familyName"
+            class="column medium-6"
+          />
+        </div>
       </fieldset>
 
       <fieldset class="jhm-fieldset">
@@ -58,25 +61,30 @@
           Contactgegevens
         </legend>
 
-        <InputBase
-          name="email"
-          type="email"
-          :required="true"
-          label="E-mailadres"
-          v-model="form.email"
-          :v="$v.form.email"
-          autocomplete="email"
-        />
-
-        <InputBase
-          name="tel"
-          type="tel"
-          :required="true"
-          label="Telefoonnummer"
-          v-model="form.tel"
-          :v="$v.form.tel"
-          autocomplete="tel"
-        />
+        <div class="row">
+          <div class="column medium-6">
+            <InputBase
+              name="email"
+              type="email"
+              :required="true"
+              label="E-mailadres"
+              v-model="form.email"
+              :v="$v.form.email"
+              autocomplete="email"
+            />
+          </div>
+          <div class="column medium-6">
+            <InputBase
+              name="tel"
+              type="tel"
+              :required="true"
+              label="Telefoonnummer"
+              v-model="form.tel"
+              :v="$v.form.tel"
+              autocomplete="tel"
+            />
+          </div>
+        </div>
       </fieldset>
 
       <InputTextArea
@@ -88,9 +96,13 @@
         :v="$v.form.motivation"
       />
 
-      <JhmButton type="submit" to="sendButton" class="jhm-button" size="large">{{
-        submitButtonText
-      }}</JhmButton>
+      <JhmButton
+        type="submit"
+        to="sendButton"
+        class="jhm-button"
+        size="large"
+        >{{ submitButtonText }}</JhmButton
+      >
     </form>
   </Layout>
 </template>
@@ -98,6 +110,7 @@
 <script>
 import axios from "axios";
 import { required, email, minLength } from "vuelidate/lib/validators";
+import Layout from "~/layouts/Forms.vue";
 import JhmButton from "~/components/JhmButton.vue";
 import InputBase from "~/components/forms/InputBase.vue";
 import InputTextArea from "~/components/forms/InputTextArea";
@@ -109,6 +122,7 @@ export default {
     title: "Ik word maatje"
   },
   components: {
+    Layout,
     JhmButton,
     InputBase,
     InputAddress,
@@ -156,12 +170,12 @@ export default {
   },
   methods: {
     getAddress(address) {
-      console.log(address)
-      this.form.address = address
+      console.log(address);
+      this.form.address = address;
     },
     getPostcode(postcode) {
-      console.log(postcode)
-      this.form.postcode = postcode
+      console.log(postcode);
+      this.form.postcode = postcode;
     },
     async submitForm() {
       this.$v.form.$touch();
@@ -179,7 +193,7 @@ export default {
         .catch(error => {
           console.log(error);
         });
-    },
+    }
   }
 };
 </script>

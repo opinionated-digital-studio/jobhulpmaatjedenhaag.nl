@@ -12,12 +12,21 @@
     v-bind:value="to"
     v-bind:class="[buttonStyle, buttonSize]"
   >
+  <slot /> 
+  </button>
+  <button
+    v-else-if="type === 'button'"
+    class="jhm-button"
+    v-bind:class="[buttonStyle, buttonSize]"
+    v-on:click.prevent="onButtonClick"
+  >
     <slot />
   </button>
 </template>
 
 <style lang="scss">
 .jhm-button {
+  font-family: $font-sans;
   border: none;
   text-align: center;
   display: block;
@@ -28,6 +37,11 @@
   color: white;
   font-weight: bold;
   text-transform: lowercase;
+
+  @include bp(md) {
+    display: inline-block;
+    min-width: 15ex;
+  }
 }
 
 .jhm-button--gray {
@@ -38,7 +52,7 @@
 .jhm-button--outline {
   background: none;
   border: 2px solid $primary-color;
-  color: $primary-color
+  color: $primary-color;
 }
 
 .jhm-button--outline-secondary {
@@ -73,12 +87,7 @@ export default {
   },
   computed: {
     buttonStyle: function() {
-      const buttonPrefix = "jhm-button--";
-      switch (this.styling) {
-        case "white":
-          return buttonPrefix + "white";
-          break;
-      }
+      return "jhm-button--" + this.styling;
     },
 
     buttonSize: function() {
@@ -88,6 +97,11 @@ export default {
           return buttonPrefix + "large";
           break;
       }
+    }
+  },
+  methods: {
+    onButtonClick: function() {
+      this.$emit("buttonClicked");
     }
   }
 };
