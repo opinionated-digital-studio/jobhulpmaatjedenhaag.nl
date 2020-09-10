@@ -1,7 +1,7 @@
 <template>
   <div class="layout">
     <JhmHeader />
-    <div class="row jhm-container" id="main">
+    <div class="row jhm-main jhm-container" id="main">
       <div class="column large-6">
         <slot />
       </div>
@@ -11,9 +11,10 @@
 </template>
 
 <style lang="scss">
-#main {
-  padding-top: emRhythm(3);
+.jhm-main {
+  padding-top: emRhythm(3) !important;
 }
+
 a:focus,
 button:focus {
   background-color: yellow;

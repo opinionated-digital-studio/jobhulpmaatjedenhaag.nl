@@ -39,6 +39,9 @@
                 {{ edge.node.title }}</g-link
               >
             </li>
+            <li class="jhm-menu__item">
+              <g-link class="jhm-menu__link" to="/contact">Contact</g-link>
+            </li>
           </div>
         </ul>
       </nav>

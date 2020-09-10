@@ -2,25 +2,36 @@
   <div class="layout">
     <JhmHeader />
     <div class="row jhm-container jhm-main" id="main">
-      <div class="column large-8">
+      <div class="column">
         <slot />
       </div>
     </div>
+
+    <div class="jhm-contact__panorama"></div>
     <JhmFooter />
   </div>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 .jhm-main {
   padding-top: emRhythm(3) !important;
-  margin-bottom: emRhythm(8) !important;
+  margin-bottom: emRhythm(5) !important;
 }
 
-a:focus,
-button:focus {
-  background-color: yellow;
-  color: black;
-  outline: 3px solid yellow;
+.jhm-contact__panorama {
+  background-image: url("../assets/jumbotron_c053b2f9.jpg");
+  height: emRhythm(30);
+  background-size: cover;
+  background-position: top;
+  width: 100%;
+
+  @include bp(md) {
+    height: emRhythm(50);
+  }
+
+  @include bp(lg) {
+    height: emRhythm(55);
+  }
 }
 
 </style>
