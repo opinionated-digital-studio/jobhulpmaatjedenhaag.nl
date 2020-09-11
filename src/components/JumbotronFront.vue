@@ -104,12 +104,12 @@
 }
 
 .jhm-container--jumbotron {
-  padding-top: emRhythm(6);
-  padding-bottom: emRhythm(6);
+  padding-top: emRhythm(6) !important;
+  padding-bottom: emRhythm(6) !important;
 
   @include bp(lg) {
-    padding-top: emRhythm(10);
-    padding-bottom: emRhythm(10);
+    padding-top: emRhythm(10) !important;
+    padding-bottom: emRhythm(10) !important;
   }
 }
 
