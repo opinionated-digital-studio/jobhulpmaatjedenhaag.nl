@@ -1,28 +1,28 @@
 <template>
   <div class="layout">
     <JhmHeader />
-    <div class="row jhm-container jhm-main" id="main">
-      <div class="column large-8">
-        <slot />
-      </div>
+    <div class="jhm-verhaal" id="main">
+      <slot />
+    <div class="jhm-verhaal__bluestrip"></div>
     </div>
     <JhmFooter />
   </div>
 </template>
 
 <style lang="scss">
-.jhm-main {
-  padding-top: emRhythm(3) !important;
-  padding-bottom: emRhythm(8) !important;
+.jhm-verhaal {
+  margin-bottom: emRhythm(5);
+  position: relative;
 }
 
-a:focus,
-button:focus {
-  background-color: yellow;
-  color: black;
-  outline: 3px solid yellow;
+.jhm-verhaal__bluestrip {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: emRhythm(45);
+  background-color: $secondary-color;
+  z-index: -1;
 }
-
 </style>
 
 <script>

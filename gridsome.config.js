@@ -37,6 +37,17 @@ module.exports = {
           // remark options
         }
       }
+    },
+    {
+      use: "@gridsome/vue-remark",
+      options: {
+        typeName: "Verhaal",
+        baseDir: "./content/verhalen",
+        template: './src/templates/Verhaal.vue', // Optional
+        remark: {
+          // remark options
+        }
+      }
     }
   ],
   transformers: {
