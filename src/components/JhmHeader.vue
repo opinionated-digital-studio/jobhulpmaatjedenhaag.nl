@@ -30,6 +30,9 @@
             class="jhm-menu__collapsible"
             v-bind:class="{ 'jhm-menu__collapsible--is-closed': !isActive }"
           >
+            <li class="jhm-menu__item">
+              <g-link class="jhm-menu__link" to="/">Home</g-link>
+            </li>
             <li
               class="jhm-menu__item"
               v-for="edge in $static.main.edges"
@@ -38,6 +41,9 @@
               <g-link class="jhm-menu__link" v-bind:to="edge.node.path">
                 {{ edge.node.title }}</g-link
               >
+            </li>
+            <li class="jhm-menu__item">
+              <g-link class="jhm-menu__link" to="/verhalen">Verhalen</g-link>
             </li>
             <li class="jhm-menu__item">
               <g-link class="jhm-menu__link" to="/contact">Contact</g-link>
