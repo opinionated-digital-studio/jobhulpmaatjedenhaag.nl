@@ -1,8 +1,7 @@
 <template>
   <Layout>
     <h1>Aanmelding voltooid</h1>
-    <p>Bedankt voor je aanmelding as hulpvrager. 
-    Als je jouw e-mailadres hebt achtergelaten, dan krijg je van ons een bevestigingsmail met de door jou verzonden gegevens.</p>
+    <p>Bedankt voor je aanmelding as hulpvrager.</p>
 
     <h2>Wat nu?</h2>
     <p>Wij doen ons best om je zo snel mogelijk te telefonisch of per mail te beantwoorden. 
