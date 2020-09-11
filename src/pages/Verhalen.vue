@@ -8,11 +8,17 @@
     <div class="jhm-verhalen__container">
       <div class="jhm-container row">
         <div class="column medium-6 large-4">
-          <CardVerhalen v-for="edge in $page.verhalen.edges" :key="edge.node.id"
-          :title="edge.node.title" :category="edge.node.category" :path="edge.node.path">
-          {{ edge.node.excerpt }}
-        </CardVerhalen
+          <CardVerhalen
+            v-for="edge in $page.verhalen.edges"
+            :key="edge.node.id"
+            :title="edge.node.title"
+            :category="edge.node.category"
+            :path="edge.node.path"
+            :thumb="edge.node.thumb"
+            :thumbalt="edge.node.thumbalt"
           >
+            {{ edge.node.excerpt }}
+          </CardVerhalen>
         </div>
       </div>
     </div>
@@ -38,6 +44,10 @@ export default {
   components: {
     Layout,
     CardVerhalen
+  },
+  computed: {
+    getThumbPath: function() {
+    }
   }
 };
 </script>
@@ -53,6 +63,8 @@ query{
         category
         excerpt
         content
+        thumb
+        thumbalt
       }
     }
   }

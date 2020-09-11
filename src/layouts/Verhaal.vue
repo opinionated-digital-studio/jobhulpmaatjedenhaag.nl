@@ -1,16 +1,27 @@
 <template>
   <div class="layout">
     <JhmHeader />
-    <div class="jhm-verhalen" id="main">
+    <div class="jhm-verhaal" id="main">
       <slot />
+    <div class="jhm-verhaal__bluestrip"></div>
     </div>
     <JhmFooter />
   </div>
 </template>
 
 <style lang="scss">
-.jhm-verhalen {
-  padding-top: emRhythm(3);
+.jhm-verhaal {
+  margin-bottom: emRhythm(5);
+  position: relative;
+}
+
+.jhm-verhaal__bluestrip {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: emRhythm(45);
+  background-color: $secondary-color;
+  z-index: -1;
 }
 </style>
 

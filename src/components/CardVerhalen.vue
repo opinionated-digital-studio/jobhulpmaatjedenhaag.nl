@@ -1,15 +1,23 @@
 <template>
   <g-link :to="path" class="jhm-card jhm-card--verhalen">
     <div class="jhm-card__img-container">
-      <g-image class="jhm-card__img" src="~/assets/caa_7704-min.jpg" alt="Een portret van JobHulpMaatje Najib"/>
+      <img
+        class="jhm-card__img"
+        :src="processedThumb()"
+        :alt="thumbalt"
+      />
     </div>
     <div class="jhm-card__content">
       <div class="jhm-card__subheading-container">
-        <h3 class="h6 jhm-card__subheading"> {{ category }} </h3>
-        <font-awesome class="fa-icon jhm-subheading__arrow" :icon="['fas', 'arrow-alt-circle-right']" size="2x" />
+        <h3 class="h6 jhm-card__subheading">{{ category }}</h3>
+        <font-awesome
+          class="fa-icon jhm-subheading__arrow"
+          :icon="['fas', 'arrow-alt-circle-right']"
+          size="2x"
+        />
       </div>
       <h2 class="h3 jhm-card__heading">{{ title }}</h2>
-    <slot />
+      <slot />
     </div>
   </g-link>
 </template>
@@ -72,7 +80,14 @@ export default {
   props: {
     title: { type: String },
     category: { type: String, default: "Nieuws" },
-    path: { type: String }
+    path: { type: String },
+    thumb: { type: String },
+    thumbalt: {type: String}
+  },
+  methods: {
+    processedThumb() {
+      return require("~/assets/thumbs/" + this.thumb);
+    }
   }
 };
 </script>
