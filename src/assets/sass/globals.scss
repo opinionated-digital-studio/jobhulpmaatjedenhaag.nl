@@ -1,9 +1,9 @@
-@import '~reset-css';
+@import "~reset-css";
 
 // Your settings for Typesettings :)
-$font-sans: 'Exo', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$font-serif: Georgia, 'Times New Roman', serif;
-$font-mono: 'Lucida Console', Monaco, monospace;
+$font-sans: "Exo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-serif: Georgia, "Times New Roman", serif;
+$font-mono: "Lucida Console", Monaco, monospace;
 $text-color: #000;
 $base-vertical-unit: 6px;
 $base-line-multi: 4;
@@ -22,10 +22,9 @@ $breakpoints: (
   xl: 1200px
 );
 
-@import '~@sfem/breakpoint/lib/breakpoint';
+@import "~@sfem/breakpoint/lib/breakpoint";
 
-
-@import '~basicgrid';
+@import "~basicgrid";
 
 $primary-color: #212b5e;
 $secondary-color: #4ebab1;
@@ -38,6 +37,22 @@ $dark-gray: #595959;
 
 body {
   font-family: $font-sans;
+}
+
+h1,
+.h1 {
+  margin-bottom: emRhythm(1, $ms-up1);
+  @include setType(5, $ms-up1);
+
+  @media (min-width: 43.75em) {
+    margin-bottom: emRhythm(1, $ms-up2);
+    @include setType(6, $ms-up2);
+  }
+
+  @media (min-width: 56.25em) {
+    margin-bottom: emRhythm(1, $ms-up3);
+    @include setType(8, $ms-up3);
+  }
 }
 
 #app {
