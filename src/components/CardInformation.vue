@@ -12,11 +12,8 @@
 </template>
 
 <style lang="scss">
-.jhm-card {
-  padding: emRhythm(4);
-}
-
 .jhm-card--information {
+  padding: emRhythm(4);
   background-color: $secondary-color;
 
   ul {

@@ -38,6 +38,10 @@
   font-weight: bold;
   text-transform: lowercase;
 
+  &:hover {
+    background-color: darken( $primary-color, 10% )
+  }
+
   @include bp(md) {
     display: inline-block;
     min-width: 15ex;
@@ -47,6 +51,10 @@
 .jhm-button--gray {
   background-color: $gray;
   color: black;
+
+  &:hover {
+    background-color: darken( $gray, 10% )
+  }
 }
 
 .jhm-button--outline {
@@ -64,11 +72,19 @@
 .jhm-button--secondary {
   background-color: $secondary-color;
   color: white;
+
+  &:hover {
+    background-color: darken( $secondary-color, 10% )
+  }
 }
 
 .jhm-button--white {
   background-color: white;
   color: $primary-color;
+
+  &:hover {
+    background-color: darken( white, 10% )
+  }
 }
 
 .jhm-button--large {
