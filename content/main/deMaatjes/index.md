@@ -3,6 +3,8 @@ title: De maatjes
 order: 1
 ---
 
+import CardInformation from "~/components/CardInformation.vue"
+
 Als maatje biedt je praktische ondersteuning aan hulpvragers met een
 loopbaanvraagstuk. Dit kan gaan om iemand die werkloos is en
 vrijwilligerswerk wilt doen of om iemand die werk heeft maar graag ander
@@ -49,3 +51,13 @@ toegewezen. De maatjescoördinator is een meer ervaren vrijwilliger die een
 aantal maatjes begeleidt tijdens het traject met de hulpvrager. Als je als
 maatje ergens tegenaan loopt, of graag wilt sparren over een dilemma, kun
 je altijd terecht bij de maatjescoördinator.
+
+<CardInformation buttonText="Ik word maatje" to="/ik-word-maatje">
+<ul>
+<li>Je bent een luisterend oor en oordeelt niet</li>
+<li>Je stelt in overleg met jouw hulpvrager de hulpvraag vast</li>
+<li>Je stimuleert en ondersteunt jouw hulpvrager bij zijn of haar loopbaanvraag</li>
+<li>Je ondersteunt jouw hulpvrager bij het schrijven van een sollicitatiebrief of het voorbereiden op een sollicitatiegesprek</li>
+<li>Je helpt jouw hulpvrager inzicht te krijgen in zijn of haar eigen talenten</li>
+</ul>
+</CardInformation>
