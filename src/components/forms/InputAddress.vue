@@ -188,7 +188,7 @@ export default {
       this.lookingForAddressText = "Bezig met zoeken...";
       await axios
         .get(
-          `http://geodata.nationaalgeoregister.nl/locatieserver/free?fq=postcode:${
+          `//geodata.nationaalgeoregister.nl/locatieserver/free?fq=postcode:${
             this.addressItems.postcode
           }&fq=huisnummer~${this.addressItems.housenumber}*`
         )
