@@ -10,6 +10,7 @@
   width: 1px;
   clip: rect(1px, 1px, 1px, 1px);
   white-space: nowrap;
+  z-index: 100000;
 }
 
 .jhm-skiplink:focus {
