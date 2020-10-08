@@ -33,4 +33,6 @@ van werk, bieden JobHulpMaatjes juist persoonlijke aandacht. Ze werken op
 jouw tempo en kijken naar wat jij nodig hebt als persoon om vooruit te komen op
 deze arbeidsmarkt.
 
+<a href="https://jobhulpmaatjedenhaag.nl/docs/projectplan_jhm_20-22.pdf"
+target="_blank">Klik hier</a> om ons jaarplan te downloaden.
 
