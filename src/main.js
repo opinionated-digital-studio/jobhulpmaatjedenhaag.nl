@@ -9,12 +9,14 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { config, library } from "@fortawesome/fontawesome-svg-core";
 import {
   faBars,
-  faArrowAltCircleRight
+  faArrowAltCircleRight,
+  faCaretDown
 } from "@fortawesome/free-solid-svg-icons";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 config.autoAddCss = false;
 library.add(faBars);
 library.add(faArrowAltCircleRight);
+library.add(faCaretDown);
 
 export default function(Vue, { router, head, isClient }) {
   // Set default layout as a global component

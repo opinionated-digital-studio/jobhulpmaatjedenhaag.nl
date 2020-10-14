@@ -2,7 +2,11 @@
   <header class="jhm-header">
     <JhmSkiplink />
     <div class="jhm-container row">
-      <nav class="column jhm-header__nav" aria-label="Hoofdmenu" role="navigation">
+      <nav
+        class="column jhm-header__nav"
+        aria-label="Hoofdmenu"
+        role="navigation"
+      >
         <ul class="jhm-nav__menu">
           <div class="jhm-menu__items jhm-menu__items--left">
             <li class="jhm-menu__item jhm-menu__item--logo">
@@ -33,20 +37,34 @@
             <li class="jhm-menu__item">
               <g-link class="jhm-menu__link" to="/">Home</g-link>
             </li>
+
             <li
-              class="jhm-menu__item"
-              v-for="edge in $static.main.edges"
-              :key="edge.node.id"
+              class="jhm-menu__item jhm-dropdown__container"
+              aria-haspopup="true"
             >
-              <g-link class="jhm-menu__link" v-bind:to="edge.node.path">
-                {{ edge.node.title }}</g-link
+              <g-link class="jhm-menu__link" to="/over-ons/"
+                >Over ons
+                <font-awesome class="fa-icon jhm-link__caret" :icon="['fas', 'caret-down']"
+              /></g-link>
+              <ul class="jhm-menu__dropdown" aria-label="submenu">
+                <li class="jhm-dropdown__item">
+                  <g-link to="/over-ons/bestuur/">Bestuur</g-link>
+                </li>
+              </ul>
+            </li>
+
+            <li class="jhm-menu__item">
+              <g-link class="jhm-menu__link" to="/de-maatjes/"
+                >De maatjes</g-link
               >
             </li>
+
             <li class="jhm-menu__item">
-              <g-link class="jhm-menu__link" to="/verhalen">Verhalen</g-link>
+              <g-link class="jhm-menu__link" to="/verhalen/">Verhalen</g-link>
             </li>
+
             <li class="jhm-menu__item">
-              <g-link class="jhm-menu__link" to="/contact">Contact</g-link>
+              <g-link class="jhm-menu__link" to="/contact/">Contact</g-link>
             </li>
           </div>
         </ul>
@@ -129,7 +147,7 @@
 
 .jhm-menu__item {
   @include bp(lg) {
-    padding: emRhythm(2) emRhythm(3);
+    padding: emRhythm(2) emRhythm(5);
     position: relative;
 
     &:last-child {
@@ -159,6 +177,63 @@
 
 .jhm-menu__hamburger {
   cursor: pointer;
+}
+
+.jhm-link__caret {
+  margin-left: emRhythm(1);
+}
+
+.jhm-menu__dropdown {
+  position: relative;
+  left: 0;
+  width: 100%;
+  list-style: none;
+  background-color: $secondary-color;
+  margin-top: emRhythm(1);
+  margin-bottom: emRhythm(1);
+
+  @include bp("lg") {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    display: none;
+  }
+}
+
+.jhm-menu__dropdown::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: emRhythm(2);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid $secondary-color;
+  z-index: -1;
+
+  @include bp("lg") {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.jhm-dropdown__container:hover > .jhm-menu__dropdown,
+.jhm-dropdown__container:focus-within > .jhm-menu__dropdown,
+.jhm-menu__dropdown:hover {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+}
+
+.jhm-dropdown__item {
+  clear: both;
+}
+
+.jhm-dropdown__item a {
+  text-decoration: none;
+  display: block;
+  padding: emRhythm(2) emRhythm(3);
 }
 </style>
 
