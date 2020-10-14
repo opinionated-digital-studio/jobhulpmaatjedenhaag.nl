@@ -26,6 +26,7 @@ function addStyleResource(rule) {
 
 module.exports = {
   siteName: "JobHulpMaatje Den Haag",
+  siteUrl: "https://www.jobhulpmaatjedenhaag.nl",
   plugins: [
     {
       use: "@gridsome/vue-remark",
@@ -48,13 +49,56 @@ module.exports = {
           // remark options
         }
       }
+    },
+    {
+      use: "@gridsome/plugin-sitemap",
+      options: {
+        config: {
+          "/": {
+            changefreq: 'yearly',
+            priority: 1.0,
+            lastmod: '2020-10-14'
+          },
+          "/over-ons": {
+            changefreq: 'monthly',
+            priority: 0.8,
+            lastmod: '2020-10-14'
+          },
+          "/over-ons/*": {
+            changefreq: 'monthly',
+            priority: 0.7,
+            lastmod: '2020-10-14'
+          },
+          "/verhalen/*": {
+            changefreq: 'monthly',
+            priority: 0.7,
+            lastmod: '2020-10-14'
+          },
+          "/de-maatjes": {
+            changefreq: 'monthly',
+            priority: 0.8,
+            lastmod: '2020-10-14'
+          },
+          "/ik-word-maatje": {
+            changefreq: 'yearly',
+            priority: 0.4,
+            lastmod: '2020-10-14'
+          },
+          "/ik-wil-hulp": {
+            changefreq: 'yearly',
+            priority: 0.4,
+            lastmod: '2020-10-14'
+          },
+          "/contact": {
+            changefreq: 'yearly',
+            priority: 0.5,
+            lastmod: '2020-10-14'
+          },  
+        }
+      }
     }
   ],
-  transformers: {
-    remark: {
-      // global remark options
-    }
-  },
+  
 
   chainWebpack(config) {
     // Load variables for all vue-files
