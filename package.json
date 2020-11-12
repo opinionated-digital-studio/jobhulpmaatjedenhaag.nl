@@ -4,7 +4,8 @@
   "scripts": {
     "build": "gridsome build",
     "develop": "gridsome develop",
-    "explore": "gridsome explore"
+    "explore": "gridsome explore",
+    "stage": "rsync -va --exclude=node_modules ./* supriyono.nl:~/deploy/jobhulpmaatjedenhaag.nl/*"
   },
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
@@ -30,6 +31,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-vue": "^6.2.2",
     "node-sass": "^4.14.1",
+    "rsync": "^0.6.1",
     "sass-loader": "^10.0.2",
     "style-resources-loader": "^1.3.3"
   }
