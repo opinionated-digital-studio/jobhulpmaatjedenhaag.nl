@@ -44,9 +44,14 @@
             >
               <g-link class="jhm-menu__link" to="/over-ons/"
                 >Over ons
-                <font-awesome class="fa-icon jhm-link__caret" :icon="['fas', 'caret-down']"
+                <font-awesome
+                  class="fa-icon jhm-link__caret"
+                  :icon="['fas', 'caret-down']"
               /></g-link>
               <ul class="jhm-menu__dropdown" aria-label="submenu">
+                <li class="jhm-dropdown__item">
+                  <g-link to="/over-ons/">Over ons</g-link>
+                </li>
                 <li class="jhm-dropdown__item">
                   <g-link to="/over-ons/bestuur/">Bestuur</g-link>
                 </li>
@@ -184,6 +189,7 @@
 }
 
 .jhm-menu__dropdown {
+  z-index: 100;
   position: relative;
   left: 0;
   width: 100%;
