@@ -45,6 +45,7 @@ module.exports = {
         typeName: "Verhaal",
         baseDir: "./content/verhalen",
         template: './src/templates/Verhaal.vue', // Optional
+        pathPrefix: '/verhalen',
         remark: {
           // remark options
         }

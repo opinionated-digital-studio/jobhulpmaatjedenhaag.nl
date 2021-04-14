@@ -7,10 +7,12 @@
     </div>
     <div class="jhm-verhalen__container">
       <div class="jhm-container row">
-        <div class="column medium-6 large-4">
+        <div
+          v-for="edge in $page.verhalen.edges"
+          :key="edge.node.id"
+          class="column medium-6 large-4"
+        >
           <CardVerhalen
-            v-for="edge in $page.verhalen.edges"
-            :key="edge.node.id"
             :title="edge.node.title"
             :category="edge.node.category"
             :path="edge.node.path"
@@ -46,8 +48,7 @@ export default {
     CardVerhalen
   },
   computed: {
-    getThumbPath: function() {
-    }
+    getThumbPath: function() {}
   }
 };
 </script>

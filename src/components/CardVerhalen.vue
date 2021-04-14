@@ -1,11 +1,7 @@
 <template>
   <g-link :to="path" class="jhm-card jhm-card--verhalen">
     <div class="jhm-card__img-container">
-      <img
-        class="jhm-card__img"
-        :src="processedThumb()"
-        :alt="thumbalt"
-      />
+      <img class="jhm-card__img" :src="processedThumb()" :alt="thumbalt" />
     </div>
     <div class="jhm-card__content">
       <div class="jhm-card__subheading-container">
@@ -32,6 +28,7 @@
 .jhm-card__content {
   padding: emRhythm(4);
   padding-top: emRhythm(3);
+  min-height: 15rem;
 }
 
 .jhm-card__heading {
@@ -64,7 +61,7 @@
   height: emRhythm(35);
 
   @include bp(lg) {
-    height: emRhythm(45);
+    height: emRhythm(50);
   }
 }
 
@@ -82,7 +79,7 @@ export default {
     category: { type: String, default: "Nieuws" },
     path: { type: String },
     thumb: { type: String },
-    thumbalt: {type: String}
+    thumbalt: { type: String }
   },
   methods: {
     processedThumb() {
